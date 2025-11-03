@@ -6,72 +6,110 @@
     <title>Athul Christo</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+
+        /* 1. Global Styles & Dark Theme */
+        :root {
+            --bg-dark: #1a1a1a;
+            --card-dark: #2a2a2a;
+            --text-light: #e0e0e0;
+            --text-secondary: #aaaaaa;
+            --accent-blue: #007BFF;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
         }
 
-        .logo {
-            width: 13%;
-            padding: 0;
-            display: flex;
-            align-items: center;
-        }
-
+        /* 2. Navbar Styles */
         .nav {
             font-family: 'Oswald', sans-serif;
-            background-color: ;
-             ;
-            background-color: ;
             color: #fff;
-            text-align: center;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px;
+            padding: 15px 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(26, 26, 26, 0.8);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
-        .nav ul {
+        .nav-links {
             list-style: none;
             padding: 0;
             display: flex;
+            margin: 0;
         }
 
         .nav a {
-            margin: 0 10px;
+            margin: 0 15px;
             text-decoration: none;
             color: #fff;
+            font-size: 18px;
+            transition: color 0.3s ease;
         }
 
+        .nav a:hover {
+            color: var(--accent-blue);
+        }
+
+        .logo p {
+            font-size: 24px;
+            margin: 0;
+            color: var(--accent-blue);
+        }
+
+        .logo {
+            width: auto;
+            padding: 0;
+            display: flex;
+            align-items: center;
+        }
+
+        /* 3. Hero Section Styles */
         .hero {
-            background-image: url("./bg.jpg");
+            background-image: url("./images/bg.jpg");
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            min-height: 100vh;
             display: flex;
             align-items: center;
-            justify-content: space-between; /* Adjusted to place the image on the left and content on the right */
+            justify-content: center;
             padding: 20px;
-            position: relative;
         }
 
         .glass {
+            display: flex;
+            align-items: center;
+            max-width: 900px;
             width: 100%;
             border-radius: 30px;
-            padding: 30px 20px;
-
-            background: rgba(153, 150, 150, 0.09);
-            backdrop-filter: blur(5px);
+            padding: 40px;
+            background: rgba(42, 42, 42, 0.2);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
         }
 
         .hero img {
-            max-width: 50%;
-            border-radius: 1000px;
-            margin-right: 20px;
-            width: 200px;
-            height: auto;
-            box-shadow: rgba(201, 201, 201, 0.499) 0px 5px 15px;
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-right: 40px;
+            border: 4px solid var(--accent-blue);
+            box-shadow: rgba(0, 123, 255, 0.5) 0px 5px 25px;
         }
 
         .hero-info {
@@ -80,13 +118,23 @@
 
         h2 {
             font-family: 'Oswald', sans-serif;
-            font-size: 28px;
-            color: #F0EEED;
+            font-size: 48px;
+            color: #FFFFFF;
+            margin: 0 0 10px 0;
         }
 
         .hero h4 {
-            font-size: 18px;
-            color: #9BA4B5;
+            font-size: 24px;
+            color: var(--accent-blue);
+            margin: 0 0 20px 0;
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-light);
+            text-align: left;
+            line-height: 1.6;
+            font-style: italic;
         }
 
         p {
@@ -95,58 +143,62 @@
             text-align: center;
         }
 
-        .container {
-            max-width: 960px;
-            margin: 0 auto;
-            padding: 20px;
-            background-color: #fff;
-        }
-
-        .profile-image {
-            max-width: 100%;
-            height: auto;
-        }
-
-
+        /* 4. Projects Section Styles */
         #project {
-            background-color: #000000;
-            padding: 30px 0;
+            background-color: var(--bg-dark);
+            padding: 50px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: 36px;
+            color: var(--accent-blue);
+            margin-bottom: 40px;
         }
 
         .project-slider {
             display: flex;
             overflow-x: auto;
-            padding: 20px;
+            padding: 20px 40px;
         }
 
         .project {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            width: 300px;
+            background-color: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            width: 320px;
             margin-right: 20px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             flex: 0 0 auto;
             padding: 20px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
         }
 
         .project h3 {
             font-size: 24px;
-            color: #000000;
+            color: var(--accent-blue);
+            margin-top: 0;
         }
 
         .project img {
             max-width: 100%;
             height: auto;
             margin: 10px 0;
+            border-radius: 10px;
         }
 
         .project p {
             font-size: 16px;
-            color: #777;
+            color: var(--text-secondary);
             margin: 10px 0;
+            text-align: left;
         }
-
 
         .project a {
             text-decoration: none;
@@ -162,124 +214,126 @@
             background-color: #0056b3;
         }
 
-
+        /* 5. Contact Section Styles */
         #contact {
-            background-color: #000000;
-            color: #fff;
+            background-color: var(--bg-dark);
+            color: var(--text-light);
             padding: 50px 0;
             text-align: center;
+        }
 
-
+        #contact .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 40px;
+            border-radius: 20px;
+            background: var(--card-dark);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         #contact h2 {
             font-family: 'Oswald', sans-serif;
             font-size: 36px;
             margin-bottom: 20px;
-            color: #013f82;
-
+            color: var(--accent-blue);
         }
 
         #contact p {
             font-size: 18px;
             margin: 20px 0;
-            color: #333;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
         #contact ul {
             list-style: none;
             padding: 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
         }
 
         #contact li {
-            font-size: 16px;
+            font-size: 18px;
             margin: 10px 0;
-        }
-        #contact .container{
-
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.884);
-
         }
 
         #contact a {
-            color: #013f82;
+            color: var(--accent-blue);
             text-decoration: none;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            padding: 10px 15px;
+            border: 1px solid var(--accent-blue);
+            border-radius: 10px;
         }
 
         #contact a:hover {
-            text-decoration: underline;
+            text-decoration: none;
+            background-color: var(--accent-blue);
+            color: #fff;
         }
     </style>
-
 </head>
 
 <body>
-    <div class="nav">
-        <a class="logo" href=""><p>Dead_Man</p></a>
-        <ul type="none" classname="items">
-            <a href="">Home</a>
-            <a href="">Projects</a>
-            <a>Contact</a>
+    <nav class="nav">
+        <a class="logo" href="#hero">
+            <p>Dead_Man</p>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#project">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
-    </div>
+    </nav>
 
-    <section id="hero">
-        <div class="hero">
-            <div class="glass">
-                <img src="C:\Users\lab\Downloads\hero.png" alt="Hero Image" />
-                <div class="hero-info">
-                    <h2>Athul Christo</h2>
-                    <h4>Student | Engineer | Web Developer</h4>
-                    <p>
-                        "The optimist thinks this is the best of all possible worlds. <br>The pessimist fears it is true."
-                        <br><br>-  J. Robert Oppenheimer
-                    </p>
-                </div>
+    <section class="hero" id="hero">
+        <div class="glass">
+            <img src="./images/hero.png" alt="Athul Christo" />
+            <div class="hero-info">
+                <h2>Athul Christo</h2>
+                <h4>Student | Engineer | Web Developer</h4>
+                <p>
+                    "The optimist thinks this is the best of all possible worlds. <br>The pessimist fears it is true."
+                    <br><br>- J. Robert Oppenheimer
+                </p>
             </div>
         </div>
     </section>
 
-
-
     <section id="project">
+        <h2 class="section-title">My Projects</h2>
         <div class="project-slider" id="projectContainer">
-       </div>
+            </div>
     </section>
+
     <script>
-        // Sample project data in an array
-        const projects = [
-            {
-                name: "about",
-                imageSrc: "about.jpg",
-                description: "aboutDescription 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                link: "#"
-            },
-            {
-                name: "Address",
-                imageSrc: "project.jpg",
-                description: "Address Description 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                link: "#"
-            },
-            {
-                name: "Education",
-                imageSrc: "project.jpg",
-                description: "Education Description 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-                link: "#"
-            },
-
-
-            {
-                name: "Hobbys",
-                imageSrc: "project.jpg",
-                description: "Hobby Description 3: Aenean in libero ac arcu eleifend luctus in et justo.",
-                link: "#"
-            }
-        ];
+        const projects = [{
+            name: "about",
+            imageSrc: "./images/about.jpg", // Fixed path
+            description: "Self-motivated B.Tech Computer Science Engineering student with a growing interest in AI, machine learning, and full-stack development. Eager to explore and deepen knowledge in emerging technologies while applying strong analytical and programming skills to solve real-world problems. Seeking an entry-level opportunity in a dynamic,innovation-driven environment to contribute meaningfully and evolve as a developer and problem-solver..",
+            link: "#"
+        }, {
+            name: "Address",
+            imageSrc: "./images/project.jpg", // Fixed path
+            description: "plakkal house kuzikattukonam po madayikonam.",
+            link: "#"
+        }, {
+            name: "Education",
+            imageSrc: "./images/project.jpg", // Fixed path
+            description: "Sahrdaya College of Engineering and Technology, Kodakara, Thrissur Kerala Technical University, - B.Tech in Computer Science",
+            link: "#"
+        }, {
+            name: "Hobbys",
+            imageSrc: "./images/project.jpg", // Fixed path
+            description: "Traveling, photography, listening to music, tech and Cars",
+            link: "#"
+        }];
 
         const projectContainer = document.getElementById("projectContainer");
 
-        // Loop through the projects and create project cards dynamically
         projects.forEach((project, index) => {
             const projectCard = document.createElement("div");
             projectCard.className = "project";
@@ -295,23 +349,20 @@
         });
     </script>
 
-
-
-
-<section id="contact">
-    <div class="container">
-        <h2>Connect Me</h2>
-        <p>
-            If you have any questions or would like to get in touch, feel free to reach out to me using the following methods:
-        </p>
-        <ul>
-            <li> <a href="mailto:nimble220727@sahrdaya.ac.in">athul222905@sahrdaya.ac.in</a></li>
-            <li> <a href="https://www.linkedin.com/in/yourprofile/">Athul Christo</a></li>
-            <li><a href="https://github.com/yourusername">Dead_Man</a></li>
+    <section id="contact">
+        <div class="container">
+            <h2>Connect Me</h2>
+            <p>
+                If you have any questions or would like to get in touch, feel free to reach out to me using the following
+                methods:
+            </p>
+            <ul>
+                <li> <a href="mailto:nimble220727@sahrdaya.ac.in">athul222905@sahrdaya.ac.in</a></li>
+                <li> <a href="https://www.linkedin.com/in/yourprofile/">Athul Christo</a></li>
+                <li><a href="https://github.com/yourusername">Dead_Man</a></li>
             </ul>
-    </div>
-</section>
-
+        </div>
+    </section>
 
 </body>
 
